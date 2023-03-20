@@ -45,6 +45,9 @@ MAC Add.  2. 데이터링크 계층   [MAC Addr.][IP Addr][Port No.][Header][파
             A                 Router 1              segment2       Router 2                segment3
            1.1             E1=R|E2=G|E3=H              2.1       E1=I|E2=J|E3=K               3.1
            
-           
+-> A에서 라우터의 통로 R로 보내고 통로 H로 빠져나와 다음 라우터의 통로 I로 들어가 통로 K로 나와서 C에 도착
+
 하지만 스위치를 건널 때는 MAC주소가 변하지 않음
  => 스위치가 자동으로 관리해주기 때문에 MAC주소가 변하지 않음
+ => 네트워크 계층을 이용하지 않음
+ => 연결되어 있는 Table로 찾아서 보냄
