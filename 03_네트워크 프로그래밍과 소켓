@@ -1,8 +1,0 @@
-[소켓]
- - 소프트웨어 차원에서 두 PC(호스트)를 연결해주는 장치
- - 소켓 프로그래밍 == 네트워크 프로그래밍
-
-[Client/Server 모델]
- - Server와 Client는 프로그램이다. Machine이 아니다.
- - Server는 Client의 연결요청을 기다린다.
- - Client는 Server에 요청을 하고 응답을 기다리는 호스트를 의미한다.
