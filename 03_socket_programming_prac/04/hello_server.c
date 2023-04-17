@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 
 	char message[]="201944026 Kim InGi!";
 	
+	// 여기서는 argc의 개수가 2어야 함 (./hserver 9190)
 	if(argc!=2){
 		printf("Usage : %s <port>\n", argv[0]);
 		exit(1);
@@ -29,9 +30,15 @@ int main(int argc, char *argv[])
 	
 	memset(&serv_addr, 0, sizeof(serv_addr));
 	serv_addr.sin_family=AF_INET;
+	// 여기서 INADDR_ANY는 자기 자신을 의미함
 	serv_addr.sin_addr.s_addr=htonl(INADDR_ANY);
 	serv_addr.sin_port=htons(atoi(argv[1]));
 	
+	// bind는 serv_sock(socket)에 serv_addr(주소)를 엮어줌, 사용하게 해줌
+	// serv_sock에 serv_addr을 bind(사용, 엮어줌)해줌
+	// serv_addr의 주소를 (struct sockaddr)로 형변환해서 사용해야함
+	// struct sockaddr_in serv_addr; 선언을 이렇게 했지만
+	// 사용할 때는 _in을 제외하고 sockaddr로 사용해야하기 때문
 	if(bind(serv_sock, (struct sockaddr*) &serv_addr, sizeof(serv_addr))==-1 )
 		error_handling("bind() error"); 
 	
