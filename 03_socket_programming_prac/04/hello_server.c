@@ -42,10 +42,12 @@ int main(int argc, char *argv[])
 	if(bind(serv_sock, (struct sockaddr*) &serv_addr, sizeof(serv_addr))==-1 )
 		error_handling("bind() error"); 
 	
+	// 이 소켓은 이제 서버로서 대기한다(연결 요청을 받기위해 대기)
 	if(listen(serv_sock, 5)==-1)
 		error_handling("listen() error");
 	
 	clnt_addr_size=sizeof(clnt_addr);  
+	// 연결 요청을 받아들이는 Socket과 통신하는 Socket은 따로 있다.
 	clnt_sock=accept(serv_sock, (struct sockaddr*)&clnt_addr,&clnt_addr_size);
 	if(clnt_sock==-1)
 		error_handling("accept() error");  

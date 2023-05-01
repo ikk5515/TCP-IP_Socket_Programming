@@ -33,6 +33,7 @@ int main(int argc, char* argv[])
 	serv_addr.sin_addr.s_addr=inet_addr(argv[1]);
 	serv_addr.sin_port=htons(atoi(argv[2]));
 		
+	// 접속할 곳의 주소를 확인하고 연결(connect)함
 	if(connect(sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr))==-1) 
 		error_handling("connect() error!");
 	
